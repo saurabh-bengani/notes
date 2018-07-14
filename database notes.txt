@@ -1,0 +1,96 @@
+dATA DICTIONARY TABLES
+
+
+dba_xyz static - normal user
+user_xyz static - normal user
+all_xyz static
+v$xyz dynamic
+
+VARCHAR USES ONLY REQUIRED SPACE
+
+CHAR BLOCKS THE UNUSED SPACE
+
+integer -  less amount of space 
+
+number  -  more amount of space
+
+create table wissen_emp as select * from employees; // primary keys will not be copied
+
+alter table - change structure of table
+
+- add
+
+- modify
+
+- drop
+
+ddl have implicit commit-----no rollbacks
+
+user_unused_col_tabs ----- data dic table for unused columns in tables
+
+scn - system change number - keeps track of all successfully executed query;
+
+recovery by scn, timestamp (incomplete recovery)
+
+recyclebin persists as long as we not try to use that space, if we reach the limit it overwrites the recyclebin
+
+dirty buffer - uncommitted data in memory of instance
+
+savepoint
+
+.dbf - data files
+.ctf - commit data..... store the pointer (CCN)
+.log
+
+
+row level locks
+
+
+share lock
+
+exclusive lock
+--> lock table wissen in share mode
+--> lock table wissen in exclusive mode
+
+extend allocates space 
+
+
+db block - multiple os blocks
+
+
+-->show parameter db_block
+
+-->alter user wissen quota 2m on users; ---allocates 2mb of storage capacity for user wissen in tablespace users;
+
+role is collection of privileges/permissions
+
+
+-->grant select on wissen to scott; //scott can now select on wissen. but he has to access it using (schemaName.tableName) //ex:- (hr.wissen)
+
+-->revoke select on wissen from scott // removes the permission of select from scott on table wissen
+
+-->grant all on wissen to scott
+
+
+no cascading effect while revoking grants for object level privileges
+
+
+
+
+
+group function ignore null
+where - to restrict at row level
+having - to restrict at groups
+
+
+
+//drop cluster emp_dept; -----error--------- cluster not emplty hence delete tables then drop cluster or else use the query below
+
+// drop cluster emp_dept including tables;
+--------------------------------------------------------------------------------------------
+define for predefined value
+declare for runtime vars
+
+
+
+
